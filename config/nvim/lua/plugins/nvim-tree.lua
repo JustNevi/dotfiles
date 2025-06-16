@@ -6,9 +6,13 @@ return {
     	"nvim-tree/nvim-web-devicons",
   	},
   	config = function()
-    	require("nvim-tree").setup({})
+    	require("nvim-tree").setup({
+			git = {
+				ignore = false
+			},
+		})
 
-		local api = require("nvim-tree.api")
-		vim.keymap.set("n", "<leader>e", api.tree.focus, {})
+		vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus NvimTree (and open if closed)' })
+		vim.api.nvim_set_keymap('n', '<leader>E', '<Cmd>NvimTreeToggle<CR>', { noremap = true, silent = true, desc = 'Toggle NvimTree' })
   	end,
 }
