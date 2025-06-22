@@ -19,7 +19,9 @@ c = {
 	bg       = p.a,
   	fg       = p.d,
 	gray     = p.gray,
-	yellow   = "#F48C06"
+	yellow   = "#F48C06",
+	green 	= "#35800C",
+	blue		= "#37007D",
 }
 
 local set = vim.api.nvim_set_hl
@@ -38,7 +40,7 @@ set(0, "CursorLineNr",{ fg = c.yellow })
 set(0, "Visual",      { bg = p.c })
 set(0, "Delimiter", 	 { fg = p.g })
 set(0, "EndOfBuffer", { fg = "bg" })
-set(0, "NonText", { fg = "bg" })
+set(0, "NonText", 	 { fg = "bg" })
 
 -- Lualine (if using custom c)
 -- You can skip this if using default lualine integrations
@@ -57,7 +59,7 @@ set(0, "NvimTreeEmptyFolderName",  { fg = p.f })
 set(0, "NvimTreeOpenedFolderName", { fg = p.g})
 set(0, "NvimTreeIndentMarker", { fg = p.b })
 set(0, "NvimTreeCursorLine", { fg = p.h })
-set(0, "NvimTreeSpecialFile", { fg = "#37007D" })
+set(0, "NvimTreeSpecialFile", { fg = c.blue })
 
 -- Telescope
 set(0, "TelescopeNormal", { fg = c.fg, bg = c.bg })
@@ -69,3 +71,13 @@ set(0, "TelescopeSelection", { fg = c.blue, bg = p.c })
 -- Toggleterm
 set(0, "TermCursor", { fg = c.fg, bg = p.c })
 set(0, "NormalFloat", { bg = c.bg })
+
+--- Gitsigns ---
+set(0, "GitSignsAdd",    { fg = c.green, bg = c.bg  })
+set(0, "GitSignsChange", { fg = p.f, bg = c.bg  })
+set(0, "GitSignsDelete", { fg = p.g, bg = c.bg })
+set(0, "SignColumn",		 { bg = c.bg })
+set(0, "GitSignsCurrentLineBlame", { fg = c.gray, bg = c.bg, italic = true })
+
+set(0, "GitSignsAddPreview",    { fg = c.green, bg = p.c  })
+set(0, "GitSignsDeletePreview", { fg = p.g, bg = p.c })
