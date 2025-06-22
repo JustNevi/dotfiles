@@ -11,6 +11,7 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to up window' })
 vim.keymap.set('n', 'J', 'jzz', { desc = 'Move cursor up and center' })
 vim.keymap.set('n', 'K', 'kzz', { desc = 'Move cursor down and center' })
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
+vim.keymap.set('n', '<C-q><C-q>', ':q<CR>:q<CR>', { desc = 'Quit' })
 
 -- VISUAL -- 
 vim.keymap.set("v", "Y", '"+y', { desc = 'Copy to clipboard'})
