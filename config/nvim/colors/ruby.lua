@@ -3,26 +3,10 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.g.colors_name = "ruby"
 
-p = {
-	a 		= "#220802",
-	c 		= "#640D14",
-	d 		= "#800E13",
-	e 		= "#AD2831",
-	f 		= "#E85D04",
-	g 		= "#BE024B",
-	h 		= "#FF6978",
-	black = "#000000",
-	gray  = "#564b44",
-}
+local colors = require("colors.ruby")
 
-c = {
-	bg       = p.a,
-  	fg       = p.d,
-	gray     = p.gray,
-	yellow   = "#F48C06",
-	green 	= "#35800C",
-	blue		= "#37007D",
-}
+local p = colors.palette
+local c = colors.colors
 
 local set = vim.api.nvim_set_hl
 
@@ -81,3 +65,4 @@ set(0, "GitSignsCurrentLineBlame", { fg = c.gray, bg = c.bg, italic = true })
 
 set(0, "GitSignsAddPreview",    { fg = c.green, bg = p.c  })
 set(0, "GitSignsDeletePreview", { fg = p.g, bg = p.c })
+
