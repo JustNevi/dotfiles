@@ -22,27 +22,27 @@ c = {
 lualine = {
   normal = {
 	 a = { fg = c.bg, bg = c.yellow, gui = "bold" },
-	 b = { fg = c.fg, bg = p.bg },
+	 b = { fg = c.fg, bg = c.bg },
 	 c = { fg = c.fg, bg = c.black },
   },
   insert = {
 	 a = { fg = c.bg, bg = c.green, gui = "bold" },
-	 b = { fg = c.fg, bg = p.bg },
+	 b = { fg = c.fg, bg = c.bg },
 	 c = { fg = c.fg, bg = c.black },
   },
   visual = {
 	 a = { fg = c.bg, bg = c.blue, gui = "bold" },
-	 b = { fg = c.fg, bg = p.bg },
+	 b = { fg = c.fg, bg = c.bg },
 	 c = { fg = c.fg, bg = c.black },
   },
   replace = {
 	 a = { fg = c.bg, bg = c.red, gui = "bold" },
-	 b = { fg = c.fg, bg = p.bg },
+	 b = { fg = c.fg, bg = c.bg },
 	 c = { fg = c.fg, bg = c.black },
   },
   inactive = {
 	 a = { fg = c.gray, bg = c.bg, gui = "bold" },
-	 b = { fg = c.fg, bg = p.bg },
+	 b = { fg = c.fg, bg = c.bg },
 	 c = { fg = c.fg, bg = c.black },
   },
 }
