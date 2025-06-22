@@ -67,5 +67,5 @@ set(0, "TelescopePreviewTitle", { fg = c.green })
 set(0, "TelescopeSelection", { fg = c.blue, bg = p.c })
 
 -- Toggleterm
-set(0, "TermCursor", { fg = c.fg, bg = c.bg })
+set(0, "TermCursor", { fg = c.fg, bg = p.c })
 set(0, "NormalFloat", { bg = c.bg })
