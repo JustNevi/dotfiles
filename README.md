@@ -1,3 +1,5 @@
+![main.png](./docs/images/main.png)
+
 # Install
 
 ## Suckless
