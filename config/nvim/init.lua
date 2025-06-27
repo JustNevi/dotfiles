@@ -6,3 +6,4 @@ require("core")
 
 -- Themes
 vim.cmd("colorscheme ruby")
+--vim.cmd("colorscheme transparent")
