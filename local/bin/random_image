@@ -1,0 +1,7 @@
+#!/bin/bash
+
+LOCAL_BIN="$HOME/.local/bin"
+
+IMAGES_FOLDER="$1"
+
+$LOCAL_BIN/list_images $IMAGES_FOLDER | sort -R | tail -n 1

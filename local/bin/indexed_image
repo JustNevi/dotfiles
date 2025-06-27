@@ -1,0 +1,8 @@
+#!/bin/bash
+
+LOCAL_BIN="$HOME/.local/bin"
+
+IMAGES_FOLDER="$1"
+INDEX=$2
+
+$LOCAL_BIN/list_images $IMAGES_FOLDER | head -n $INDEX | tail -n 1

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+IMAGES_FOLDER="$1"
+
+find "$IMAGES_FOLDER" -maxdepth 1 -type f \( \
+	-iname "*jpg" -o \
+	-iname "*jpeg" -o \
+	-iname "*png" -o \
+	-iname "*gif" -o \
+	-iname "*bmp" \
+\)

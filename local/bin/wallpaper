@@ -1,0 +1,69 @@
+#!/bin/bash
+
+LOCAL_BIN="$HOME/.local/bin"
+CACHE_DIR="$HOME/.cache"
+CACHE_FILE_NAME="wallpaper_index"
+CACHE_FILE=$CACHE_DIR/$CACHE_FILE_NAME
+
+WALLPAPERS_DIR=$HOME/.local/share/wallpapers
+
+set_indexed_image(){
+	IMAGE_PATH="$($LOCAL_BIN/indexed_image $WALLPAPERS_DIR $INDEX)" 
+}
+
+set_next_image(){
+	if [ -f $CACHE_FILE ]; then
+		INDEX=$(cat $CACHE_FILE)
+	else
+		INDEX=1
+	fi
+	
+	# Check is number
+	if ! [[ $INDEX =~ ^[0-9]+$ ]]; then
+		INDEX=1
+	fi
+
+	((INDEX+=1))
+	NUMBER_IMAGES=$($LOCAL_BIN/list_images $WALLPAPERS_DIR | wc -l)
+
+	if ((INDEX>NUMBER_IMAGES)); then
+		INDEX=1
+	fi
+	
+	echo "$INDEX" > $CACHE_FILE
+
+	set_indexed_image
+}
+
+set_random_image(){
+	IMAGE_PATH="$($LOCAL_BIN/random_image $WALLPAPERS_DIR)" 
+}
+
+
+DEFAULT=true
+while getopts "nri:" OPTION; do
+	DEFAULT=false
+	case $OPTION in
+		n)
+			set_next_image
+			;;
+		r)
+			set_random_image
+			;;
+		i)
+			INDEX=$OPTARG
+			set_indexed_image
+			;;
+		*)
+			exit 1
+			;;
+	esac
+done
+
+if $DEFAULT; then
+	set_next_image
+fi
+
+
+
+xwallpaper --maximize "$IMAGE_PATH"
