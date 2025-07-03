@@ -1,0 +1,11 @@
+--- config.def.h.origin	2025-07-04 00:31:12.280963590 +0200
++++ config.def.h	2025-06-23 01:28:34.050195105 +0200
+@@ -5,7 +5,7 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "Hack Nerd Font Mono:pixelsize=17:antialias=true:autohint=true";
+ static int borderpx = 2;
+ 
+ /*
