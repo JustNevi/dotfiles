@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DATE=$(date +"%d.%m.%Y <> %H:%M")
+ICON=" "
+
+echo "$ICON$DATE"
+
+case $BUTTON in
+	1) notify-send "Date" "$(date)" ;;
+esac
