@@ -1,0 +1,40 @@
+#!/bin/sh
+
+BATTERY_PATH=/sys/class/power_supply/BAT0
+
+STATUS=$(cat $BATTERY_PATH/status)
+CAPACITY=$(cat $BATTERY_PATH/capacity)
+STATUS_ICON="󰢤"
+BATTERY_ICON="󰂌"
+  
+battery_status_icon(){
+	case $STATUS in
+		"Full") 				STATUS_ICON="" 	;;
+		"Charging")  		STATUS_ICON=""	;;
+		"Discharging") 	STATUS_ICON=""  	;;
+		"Not charging") 	STATUS_ICON="" 	;;
+		"Unknown") 			STATUS_ICON="󰢤" 	;;
+		*) exit 1 ;;
+	esac
+}
+
+battery_cappacity_icon(){
+	case "$CAPACITY" in
+        100) BATTERY_ICON="󰁹" ;;
+        9[0-9]) BATTERY_ICON="󰂂" ;; # 90-99
+        8[0-9]) BATTERY_ICON="󰂁" ;; # 80-89
+        7[0-9]) BATTERY_ICON="󰂀" ;; # 70-79
+        6[0-9]) BATTERY_ICON="󰁿" ;; # 60-69
+        5[0-9]) BATTERY_ICON="󰁾" ;; # 50-59
+        4[0-9]) BATTERY_ICON="󰁽" ;; # 40-49
+        3[0-9]) BATTERY_ICON="󰁼" ;; # 30-39
+        2[0-9]) BATTERY_ICON="󰁻" ;; # 20-29
+        1[0-9]) BATTERY_ICON="󰁺" ;; # 10-19
+        *) BATTERY_ICON="󰂎" ;;    # Default for anything else (0-9)
+    esac
+}
+
+battery_status_icon
+battery_cappacity_icon
+
+echo "$STATUS_ICON$BATTERY_ICON $CAPACITY%"

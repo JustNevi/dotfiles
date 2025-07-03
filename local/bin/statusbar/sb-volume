@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# This script displays the current audio volume and mute status using amixer.
+# It can also be used to toggle mute if called with 'toggle'.
+
+# Define the sound card and control (e.g., 'Master' or 'PCM')
+# You might need to adjust 'Master' if your system uses a different control.
+# To find your controls, run 'amixer scontrols'.
+SOUND_CONTROL="Master"
+
+# Function to get the current volume and mute status
+get_volume_status() {
+    # Get the output from amixer for the specified control
+    AMIXER_INFO=$(amixer get "$SOUND_CONTROL" 2>&1)
+
+    # Check if the control exists
+    if echo "$AMIXER_INFO" | grep -q "Invalid mixer control"; then
+        echo "Error: Control '$SOUND_CONTROL' not found."
+        return 1
+    fi
+
+    # Extract volume percentage (e.g., [80%])
+    VOLUME=$(echo "$AMIXER_INFO" | grep -o -E '[0-9]+%' | head -n 1 | sed 's/%//')
+
+    # Extract mute status (e.g., [on] or [off])
+    MUTE_STATUS=$(echo "$AMIXER_INFO" | grep -o -E '\[(on|off)\]' | head -n 1)
+
+    if [ "$MUTE_STATUS" = "[off]" ]; then
+        echo "Muted"
+    elif [ -n "$VOLUME" ]; then
+        echo "󰕾 ${VOLUME}%"
+    else
+        echo "N/A" # Fallback if volume can't be extracted
+    fi
+}
+
+# Function to toggle mute
+toggle_mute() {
+    amixer set "$SOUND_CONTROL" toggle
+}
+
+# Main logic
+case "$1" in
+    toggle)
+        toggle_mute
+        ;;
+    *)
+        get_volume_status
+        ;;
+esac
+
