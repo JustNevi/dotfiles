@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# WIFI
+NET_WIRELESS_STATE="$(cat /sys/class/net/w*/operstate 2>/dev/null)"
+WIFI_ICON=""
+
+if [ "$NET_WIRELESS_STATE" = "up" ] ; then
+	WIFI_LEVEL_PERCENT="$(awk '/w*:/ {print int(($3/70)*100) "%"}' /proc/net/wireless)"
+	WIFI_ICON="$WIFI_LEVEL_PERCENT"
+elif [ "$NET_WIRELESS_STATE" = "down" ] ; then
+	NET_WIRELESS_FLAG="$(cat /sys/class/net/w*/flags 2>/dev/null)" 
+	[ $NET_WIRELESS_FLAG = "0x1003" ] && WIFI_ICON="󱚼" || WIFI_ICON=""
+fi
+
+# Ethernet
+NET_WIRED_STATE="$(cat /sys/class/net/e*/operstate 2>/dev/null)"
+ETHER_ICON=""
+[ $NET_WIRED_STATE = "up" ] && ETHER_ICON="󰈀" || ETHER_ICON="󰈂"
+
+# TUN
+NET_TUN_STATE="$(cat /sys/class/net/tun*/operstate 2>/dev/null)"
+TUN_ICON=""
+[ -n "$NET_TUN_STATE" ] && tunicon=""
+
+
+# ===OUTPUT===
+echo "$WIFI_ICON $ETHER_ICON $TUN_ICON"
