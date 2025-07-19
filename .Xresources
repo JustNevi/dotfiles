@@ -1,0 +1,20 @@
+!! All
+! *.background: #cc241d
+
+!! Suckless
+! Dwm
+dwm.font: 						Hack Nerd Font Mono:size=12
+dwm.gappx: 						10	
+dwm.borderpx: 					4
+dwm.normbgcolor:				#222222
+dwm.selbgcolor: 				#b50000
+dwm.selbordercolor: 			#b50001
+! St
+st.alpha: 						0.8
+st.font: 						Hack Nerd Font Mono:pixelsize=17
+
+!! Programs 
+! Sxiv
+Nsxiv.window.background: 	#222222 
+Nsxiv.window.foreground:	#bbbbbb
+Nsxiv.bar.font: 				Hack
