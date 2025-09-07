@@ -13,8 +13,13 @@ vim.keymap.set('n', 'K', 'kzz', { desc = 'Move cursor down and center' })
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
 vim.keymap.set('n', '<C-q><C-q>', ':q<CR>:q<CR>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>mw', ':%s/', { desc = 'Replace' })
+vim.keymap.set('n', '<leader>ih', ':Inspect<CR>', { desc = 'Inspect highlight groupes' })
+vim.keymap.set("n", "gcc", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment line' })
 
 -- VISUAL -- 
 vim.keymap.set("v", "Y", '"+y', { desc = 'Copy to clipboard'})
 vim.keymap.set('v', '<Tab>', '>gv', { desc = 'Indent visual selection' })
 vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Dedent visual selection' })
+vim.keymap.set('v', 'gf', '*y', { desc = 'Find visual selection' })
+vim.keymap.set('v', 'gr', 'y:%s/<C-r>"//g<Left><Left>', { desc = 'Replace selected text in file' })
+vim.keymap.set("v", "gcc", "<Plug>(comment_toggle_linewise_visual)", { desc = 'Comment selected line' })

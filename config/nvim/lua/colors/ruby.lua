@@ -1,3 +1,3 @@
-colors = require("colors.ruby_dark")
+colors = require("colors.ruby-x")
 
 return colors 

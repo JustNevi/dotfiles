@@ -3,7 +3,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.g.colors_name = "ruby"
 
-local colors = require("colors.ruby_dark")
+local colors = require("colors.ruby-dark")
 
 local p = colors.palette
 local c = colors.colors
