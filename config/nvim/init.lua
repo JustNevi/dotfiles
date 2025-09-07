@@ -5,5 +5,5 @@ require("config.lazy")
 require("core")
 
 -- Themes
-vim.cmd("colorscheme ruby")
+vim.cmd("colorscheme ruby-x")
 --vim.cmd("colorscheme transparent")
