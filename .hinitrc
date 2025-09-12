@@ -1,1 +1,2 @@
- ~/.local/bin/wallpaper
+xrdb .Xresources 
+ ~/.local/bin/wallpaper & 
