@@ -1,0 +1,32 @@
+diff --git a/config.def.h b/config.def.h
+index d6b19ac..a4e6c40 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -50,7 +50,7 @@ static const Layout layouts[] = {
+ };
+ 
+ /* key definitions */
+-#define MODKEY Mod1Mask
++#define MODKEY Mod4Mask
+ #define TAGKEYS(KEY,TAG) \
+ 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+diff --git a/config.h b/config.h
+index d6b19ac..a4e6c40 100644
+--- a/config.h
++++ b/config.h
+@@ -50,7 +50,7 @@ static const Layout layouts[] = {
+ };
+ 
+ /* key definitions */
+-#define MODKEY Mod1Mask
++#define MODKEY Mod4Mask
+ #define TAGKEYS(KEY,TAG) \
+ 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+ 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+diff --git a/dwm b/dwm
+index a4bb65d..260c02d 100755
+Binary files a/dwm and b/dwm differ
+diff --git a/dwm.o b/dwm.o
+index 0db4d76..084b004 100644
+Binary files a/dwm.o and b/dwm.o differ
