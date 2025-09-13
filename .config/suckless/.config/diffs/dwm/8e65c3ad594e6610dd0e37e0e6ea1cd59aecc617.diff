@@ -1,0 +1,84 @@
+diff --git a/dwm b/dwm
+index 693c3f8..bb6523e 100755
+Binary files a/dwm and b/dwm differ
+diff --git a/dwm.c b/dwm.c
+index 9da4d3e..ee3aef0 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1099,6 +1099,8 @@ manage(Window w, XWindowAttributes *wa)
+ 	updatewindowtype(c);
+ 	updatesizehints(c);
+ 	updatewmhints(c);
++	c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
++	c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
+ 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
+ 	grabbuttons(c, 0);
+ 	if (!c->isfloating)
+diff --git a/dwm.c.orig b/dwm.c.orig
+index 34e046d..9da4d3e 100644
+--- a/dwm.c.orig
++++ b/dwm.c.orig
+@@ -52,8 +52,8 @@
+                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
+ #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
+ #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
+-#define WIDTH(X)                ((X)->w + 2 * (X)->bw)
+-#define HEIGHT(X)               ((X)->h + 2 * (X)->bw)
++#define WIDTH(X)                ((X)->w + 2 * (X)->bw + gappx)
++#define HEIGHT(X)               ((X)->h + 2 * (X)->bw + gappx)
+ #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
+ #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
+ 
+@@ -1320,12 +1320,36 @@ void
+ resizeclient(Client *c, int x, int y, int w, int h)
+ {
+ 	XWindowChanges wc;
++	unsigned int n;
++	unsigned int gapoffset;
++	unsigned int gapincr;
++	Client *nbc;
+ 
+-	c->oldx = c->x; c->x = wc.x = x;
+-	c->oldy = c->y; c->y = wc.y = y;
+-	c->oldw = c->w; c->w = wc.width = w;
+-	c->oldh = c->h; c->h = wc.height = h;
+ 	wc.border_width = c->bw;
++
++	/* Get number of clients for the client's monitor */
++	for (n = 0, nbc = nexttiled(c->mon->clients); nbc; nbc = nexttiled(nbc->next), n++);
++
++	/* Do nothing if layout is floating */
++	if (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL) {
++		gapincr = gapoffset = 0;
++	} else {
++		/* Remove border and gap if layout is monocle or only one client */
++		if (c->mon->lt[c->mon->sellt]->arrange == monocle || n == 1) {
++			gapoffset = 0;
++			gapincr = -2 * borderpx;
++			wc.border_width = 0;
++		} else {
++			gapoffset = gappx;
++			gapincr = 2 * gappx;
++		}
++	}
++
++	c->oldx = c->x; c->x = wc.x = x + gapoffset;
++	c->oldy = c->y; c->y = wc.y = y + gapoffset;
++	c->oldw = c->w; c->w = wc.width = w - gapincr;
++	c->oldh = c->h; c->h = wc.height = h - gapincr;
++
+ 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+ 	configure(c);
+ 	XSync(dpy, False);
+@@ -1738,7 +1762,7 @@ tile(Monitor *m)
+ 	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+ 		if (i < m->nmaster) {
+ 			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
+-			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
++			resize(c, m->wx, m->wy + my, mw - (2*c->bw) + (n > 1 ? gappx : 0), h - (2*c->bw), 0);
+ 			if (my + HEIGHT(c) < m->wh)
+ 				my += HEIGHT(c);
+ 		} else {
+diff --git a/dwm.o b/dwm.o
+index d586b2b..cc663ce 100644
+Binary files a/dwm.o and b/dwm.o differ
