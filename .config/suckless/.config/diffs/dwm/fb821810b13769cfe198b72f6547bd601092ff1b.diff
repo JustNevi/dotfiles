@@ -43,6 +43,33 @@ index 11d21ea..f550492 100644
  static const int attachbelow = 1;    /* 1 means attach after the currently active window */
  static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
  static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
+diff --git a/config.h b/config.h
+index f550492..d6b19ac 100644
+--- a/config.h
++++ b/config.h
+@@ -60,6 +60,8 @@ static const Layout layouts[] = {
+ /* helper for spawning shell commands in the pre dwm-5.0 fashion */
+ #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+ 
++#define STATUSBAR "dwmblocks"
++
+ /* commands */
+ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+@@ -130,7 +132,9 @@ static const Button buttons[] = {
+ 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+ 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+ 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
++	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
++	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
++	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+ 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+ 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+diff --git a/dwm b/dwm
+index bb6523e..a4bb65d 100755
+Binary files a/dwm and b/dwm differ
 diff --git a/dwm.c b/dwm.c
 index ee3aef0..3e14a6e 100644
 --- a/dwm.c
@@ -230,3 +257,6 @@ index 9da4d3e..ee3aef0 100644
  	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
  	grabbuttons(c, 0);
  	if (!c->isfloating)
+diff --git a/dwm.o b/dwm.o
+index cc663ce..0db4d76 100644
+Binary files a/dwm.o and b/dwm.o differ
