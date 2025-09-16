@@ -5,6 +5,9 @@ return {
   config = function()
     require('nvim-xresources').setup({
       xresources_path = os.getenv("HOME") .. '/.Xresources',
+		auto_light = {
+		  enable = false,
+      },
     })
   end
 }
