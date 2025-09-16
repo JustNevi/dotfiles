@@ -2,6 +2,7 @@
 ! ! Background and Foreground 
 ! *background: #000000
 ! *foreground: #A8A8A8
+! *cursorColor: #A8A8A8
 !
 ! ! Standard Colors
 ! *color0:  #000000
