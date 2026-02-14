@@ -25,6 +25,153 @@
 ! *color15: #ffffff
 ! ! --------------------------
 
+! ! Fiery Ocean
+! *background: #0a0908
+! *foreground: #b1a7a6
+! *color0:  #161a1d
+! *color1:  #780000
+! *color2:  #BE4545
+! *color3:  #EEB9A8
+! *color4:  #40606C
+! *color5:  #3c096c
+! *color6:  #218380
+! *color7:  #bbbbbb
+! *color8:  #403d39
+! *color9:  #C1121F
+! *color10: #DF817A
+! *color11: #FDF0D5
+! *color12: #336683
+! *color13: #669BBC
+! *color14: #73d2de
+! *color15: #ffffff
+
+! ! Olive Garden Feast
+! *background: #0a0908
+! *foreground: #b1a7a6
+! *color0:  #606c38
+! *color1:  #588157
+! *color2:  #bc6c25
+! *color3:  #dda15e
+! *color4:  #fefae0
+! *color5:  #6a994e
+! *color6:  #218380
+! *color7:  #fb8500
+! *color8:  #283618
+! *color9:  #344e41
+! *color10: #99582a
+! *color11: #f4a261
+! *color12: #faedcd
+! *color13: #386641
+! *color14: #669BBC
+! *color15: #e36414
+
+
+! ! TomorrowNight(*)
+! *.background: #1d1f21
+! *.foreground: #c5c8c6
+! *.cursorColor: #aeafad
+! *.color0: #000000
+! *.color1: #cc6666
+! *.color2: #b5bd68
+! *.color3: #de935f
+! *.color4: #81a2be
+! *.color5: #b294bb
+! *.color6: #8abeb7
+! *.color7: #373b41
+! *.color8: #666664
+! *.color9: #FF3334
+! *.color10: #9ec400
+! *.color11: #f0c674
+! *.color12: #81a2be
+! *.color13: #b777e0
+! *.color14: #54ced6
+! *.color15: #282a2e
+
+! Sunset
+! *.background: #262626
+! *.foreground: #e4e4e4
+! *.cursorColor: #e4e4e4
+! *.color0: #262626
+! *.color1: #af005f
+! *.color2: #1c5f5f
+! *.color3: #af871c
+! *.color4: #1c5f87
+! *.color5: #5f1c5f
+! *.color6: #005f87
+! *.color7: #afafaf
+! *.color8: #6c6c6c
+! *.color9: #af5f87
+! *.color10: #008787
+! *.color11: #dfaf00
+! *.color12: #5f87af
+! *.color13: #875f87
+! *.color14: #0087af
+! *.color15: #e4e4e4
+
+! Twilight(*)
+! *.background: #1c1c1c
+! *.foreground: #e4e4e4
+! *.cursorColor: #e4e4e4
+! *.color0: #1c1c1c
+! *.color1: #af005f
+! *.color2: #1c5f5f
+! *.color3: #af871c
+! *.color4: #1c5f87
+! *.color5: #5f1c5f
+! *.color6: #005f87
+! *.color7: #afafaf
+! *.color8: #626262
+! *.color9: #af5f87
+! *.color10: #008787
+! *.color11: #dfaf00
+! *.color12: #5f87af
+! *.color13: #875f87
+! *.color14: #0087af
+! *.color15: #e4e4e4
+
+! One-dark(*)
+! *.background: #1E2127
+! *.foreground: #ABB2BF
+! *.cursorColor: #5C6370
+! *.highlightColor: #3A3F4B
+! *.color0: #1E2127
+! *.color1: #E06C75
+! *.color2: #98C379
+! *.color3: #D19A66
+! *.color4: #61AFEF
+! *.color5: #C678DD
+! *.color6: #56B6C2
+! *.color7: #ABB2BF
+! *.color8: #5C6370
+! *.color9: #E06C75
+! *.color10: #98C379
+! *.color11: #D19A66
+! *.color12: #61AFEF
+! *.color13: #C678DD
+! *.color14: #56B6C2
+! *.color15: #FFFFFF
+
+! Apple
+! *.foreground:   #ccbbb0
+! *.background:   #1b0b10
+! *.cursorColor:  #ccbbb0
+! *.color0:       #1b0b10
+! *.color8:       #421925
+! *.color1:       #82354f
+! *.color9:       #b33e65
+! *.color2:       #803466
+! *.color10:      #b33e8c
+! *.color3:       #4f3480
+! *.color11:      #673eb3
+! *.color4:       #346580
+! *.color12:      #3e8ab3
+! *.color5:       #348068
+! *.color13:      #3eb38c
+! *.color6:       #6e804d
+! *.color14:      #9ab36b
+! *.color7:       #b3a49a
+! *.color16:      #ccbbb0
+
 
 !! All
 ! *.background: #cc241d
