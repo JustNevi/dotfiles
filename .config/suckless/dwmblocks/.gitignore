@@ -1,5 +1,7 @@
 # Custom blocks file
 blocks.h
+*.orig
+*.rej
 
 # Prerequisites
 *.d
@@ -54,6 +56,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-# Local
-make_diff.sh
