@@ -1,1 +1,6 @@
-make_diff.sh
+*.orig
+*.o
+*.rej
+
+config.h
+dwm
