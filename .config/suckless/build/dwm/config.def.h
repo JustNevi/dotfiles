@@ -1,15 +1,14 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx   = 1;        		/* border pixel of windows */
-static unsigned int snap       = 32;       		/* snap pixel */
-static const unsigned int gappx     = 6;        /* gaps between windows */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
+static unsigned int borderpx   = 1;        /* border pixel of windows */
+static unsigned int snap       = 32;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -42,7 +41,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static float mfact = 0.55;           /* factor of master area size [0.05..0.95] */
 static int nmaster = 1;              /* number of clients in master area */
-static int resizehints = 0;          /* 1 means respect size hints in tiled resizals */
+static int resizehints = 1;          /* 1 means respect size hints in tiled resizals */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
