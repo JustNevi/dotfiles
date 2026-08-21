@@ -1,1 +1,6 @@
-make_diff.sh
+*.orig
+*.rej
+
+*.o
+config.h
+st
