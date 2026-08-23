@@ -14,6 +14,7 @@ git
 vim
 neovim
 firefox
+zathura
 
 neofetch
 cmatrix
