@@ -1,0 +1,58 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = 370
+    height = (0, 350)
+    origin = top-right
+    offset = (10, 50)
+    scale = 0
+    notification_limit = 20
+    show_age_threshold = 60
+
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    text_icon_padding = 0
+
+    frame_width = 3
+    frame_color = "$FRAME_COLOR"
+    gap_size = 0
+    separator_color = frame
+    sort = yes
+
+    font = $FONT
+    format = "<b>%s</b>\n%b"
+
+    alignment = left
+    vertical_alignment = center
+
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "$LOW_BACKGROUND"
+    foreground = "$LOW_FOREGROUND"
+    frame_color = "$LOW_FRAME_COLOR"
+    timeout = 10
+    # Icon for notifications with low urgency
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "$NORMAL_BACKGROUND"
+    foreground = "$NORMAL_FOREGROUND"
+    frame_color = "$NORMAL_FRAME_COLOR"
+    timeout = 10
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "$CRITICAL_BACKGROUND"
+    foreground = "$CRITICAL_FOREGROUND"
+    frame_color = "$CRITICAL_FRAME_COLOR"
+    timeout = 0
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = dialog-warning

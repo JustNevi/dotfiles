@@ -1,0 +1,58 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = 370
+    height = (0, 350)
+    origin = top-right
+    offset = (10, 50)
+    scale = 0
+    notification_limit = 20
+    show_age_threshold = 60
+
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    text_icon_padding = 0
+
+    frame_width = 3
+    frame_color = "#218380"
+    gap_size = 0
+    separator_color = frame
+    sort = yes
+
+    font = Hack Nerd Font Mono 12
+    format = "<b>%s</b>\n%b"
+
+    alignment = left
+    vertical_alignment = center
+
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#bb00bb"
+    foreground = "#bbbbbb"
+    frame_color = "#bbbb00"
+    timeout = 10
+    # Icon for notifications with low urgency
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#588157"
+    foreground = "#A8A8A8"
+    frame_color = "#3c096c"
+    timeout = 10
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#780000"
+    foreground = "#EEB9A8"
+    frame_color = "#C1121F"
+    timeout = 0
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = dialog-warning
