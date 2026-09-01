@@ -1,0 +1,31 @@
+#!/bin/sh
+AUDIO="@DEFAULT_AUDIO_SOURCE@"
+IS_MUTED=0
+MICROPHONE_ICON=""
+VOLUME="x"
+
+volume() {
+    VOL=$(wpctl get-volume $AUDIO) 
+
+    IS_MUTED=0
+    if [ "$VOL" != "${VOL%\[MUTED\]}" ] ; then
+        IS_MUTED=1
+    fi
+
+    VOLUME=$(echo $VOL | awk '{print int($2 * 100)}')
+}
+
+microphone_icon() {
+    if [ "$IS_MUTED" -eq 1 ]; then
+        MICROPHONE_ICON=""
+        return
+	else
+		MICROPHONE_ICON=""
+    fi
+}
+
+volume
+microphone_icon
+
+# ===OUTPUT===
+echo "$MICROPHONE_ICON $VOLUME%"

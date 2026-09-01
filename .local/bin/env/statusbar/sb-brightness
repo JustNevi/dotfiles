@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ICON="󰃠 "
+
+BRIGHTNESS=$(brightnessctl i)
+BRIGHTNESS="${BRIGHTNESS##*(}"
+BRIGHTNESS="${BRIGHTNESS%%%)*}%"
+
+# ===OUTPUT===
+echo "$ICON$BRIGHTNESS"

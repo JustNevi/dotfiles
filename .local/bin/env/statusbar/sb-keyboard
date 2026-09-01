@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ICON="󰌌 "
+KB="$(setxkbmap -query | grep -oP 'layout:\s*\K\w+')"
+
+# ===OUTPUT===
+echo "$ICON$KB"
