@@ -1,46 +1,58 @@
 #!/bin/sh
 
-BATTERY_PATH=/sys/class/power_supply/BAT0
+OUTPUT=""
 
-STATUS=$(cat $BATTERY_PATH/status)
-CAPACITY=$(cat $BATTERY_PATH/capacity)
-POWER_NOW=$(cat $BATTERY_PATH/power_now 2>/dev/null)
-STATUS_ICON="󰢤"
-BATTERY_ICON="󰂌"
-  
-battery_status_icon(){
-	case $STATUS in
-		"Full")
-			# Check if full but still charging
-			[ "$POWER_NOW" -gt 0 ] && 
-				STATUS_ICON="" || 
-				STATUS_ICON="" 					;;
-		"Charging")  		STATUS_ICON=""	;;
-		"Discharging") 	STATUS_ICON=""  	;;
-		"Not charging") 	STATUS_ICON="" 	;;
-		"Unknown") 			STATUS_ICON="󰢤" 	;;
-		*) exit 1 ;;
-	esac
-}
+for BATTERY_PATH in /sys/class/power_supply/BAT*; do
+    [ -d "$BATTERY_PATH" ] || continue
 
-battery_cappacity_icon(){
-	case "$CAPACITY" in
-        100) BATTERY_ICON="󰁹" ;;
-        9[0-9]) BATTERY_ICON="󰂂" ;; # 90-99
-        8[0-9]) BATTERY_ICON="󰂁" ;; # 80-89
-        7[0-9]) BATTERY_ICON="󰂀" ;; # 70-79
-        6[0-9]) BATTERY_ICON="󰁿" ;; # 60-69
-        5[0-9]) BATTERY_ICON="󰁾" ;; # 50-59
-        4[0-9]) BATTERY_ICON="󰁽" ;; # 40-49
-        3[0-9]) BATTERY_ICON="󰁼" ;; # 30-39
-        2[0-9]) BATTERY_ICON="󰁻" ;; # 20-29
-        1[0-9]) BATTERY_ICON="󰁺" ;; # 10-19
-        *) BATTERY_ICON="󰂎" ;;    # Default for anything else (0-9)
-    esac
-}
+    STATUS=$(cat "$BATTERY_PATH/status" 2>/dev/null)
+    CAPACITY=$(cat "$BATTERY_PATH/capacity" 2>/dev/null)
+    POWER_NOW=$(cat "$BATTERY_PATH/power_now" 2>/dev/null)
 
-battery_status_icon
-battery_cappacity_icon
+    STATUS_ICON="󰢤"
+    BATTERY_ICON="󰂌"
+      
+    battery_status_icon(){
+        case $STATUS in
+            "Full")
+                [ -n "$POWER_NOW" ] && [ "$POWER_NOW" -gt 0 ] && 
+                    STATUS_ICON="" || 
+                    STATUS_ICON=""                     ;;
+            "Charging")          STATUS_ICON=""    ;;
+            "Discharging")       STATUS_ICON=""      ;;
+            "Not charging")      STATUS_ICON=""     ;;
+            "Unknown")           STATUS_ICON="󰢤"     ;;
+            *)                   STATUS_ICON="?"     ;;
+        esac
+    }
+
+    battery_cappacity_icon(){
+        case "$CAPACITY" in
+            100) BATTERY_ICON="󰁹" ;;
+            9[0-9]) BATTERY_ICON="󰂂" ;;
+            8[0-9]) BATTERY_ICON="󰂁" ;;
+            7[0-9]) BATTERY_ICON="󰂀" ;;
+            6[0-9]) BATTERY_ICON="󰁿" ;;
+            5[0-9]) BATTERY_ICON="󰁾" ;;
+            4[0-9]) BATTERY_ICON="󰁽" ;;
+            3[0-9]) BATTERY_ICON="󰁼" ;;
+            2[0-9]) BATTERY_ICON="󰁻" ;;
+            1[0-9]) BATTERY_ICON="󰁺" ;;
+            *) BATTERY_ICON="󰂎" ;;
+        esac
+    }
+
+    battery_status_icon
+    battery_cappacity_icon
+
+    BAT_OUTPUT="$STATUS_ICON$BATTERY_ICON $CAPACITY%"
+    
+    if [ -z "$OUTPUT" ]; then
+        OUTPUT="$BAT_OUTPUT"
+    else
+        OUTPUT="$OUTPUT $BAT_OUTPUT"
+    fi
+done
 
 # ===OUTPUT===
-echo "$STATUS_ICON$BATTERY_ICON $CAPACITY%"
+echo "$OUTPUT"
