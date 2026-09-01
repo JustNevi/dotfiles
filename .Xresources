@@ -178,18 +178,42 @@
 
 !! Suckless
 ! Dwm
-dwm.font: 						Hack Nerd Font Mono:size=12
-dwm.gappx: 						10	
-dwm.borderpx: 					4
-dwm.normbgcolor:				#222222
-dwm.selbgcolor: 				#b50000
-dwm.selbordercolor: 			#b50001
+dwm.font:						Hack Nerd Font Mono:size=15
+dwm.dmenufont:					Hack Nerd Font Mono:size=15
+dwm.background:					#222222
+dwm.foreground:					#b50000
+dwm.backgroundSel:				#161a1d				
+dwm.foregroundSel:				#BE4545
+dwm.border:						#218380						
+dwm.borderSel:					#73d2de
+dwm.borderpx:					2
+dwm.gappih:						5
+dwm.gappiv:						5
+dwm.gappoh:						0
+dwm.gappov:						0
+dwm.resizehints:				0
+
 ! St
 st.alpha: 						0.8
-st.font: 						Hack Nerd Font Mono:pixelsize=17
+st.font: 						Hack Nerd Font Mono:size=15
 
 !! Programs 
 ! Sxiv
 Nsxiv.window.background: 	#222222 
 Nsxiv.window.foreground:	#bbbbbb
 Nsxiv.bar.font: 				Hack
+
+!! Dunst
+dunst.font:						Hack Nerd Font Mono 12
+dunst.frame_color:				#218380
+dunst.low.background:			#bb00bb
+dunst.low.foreground:			#bbbbbb
+dunst.low.frame_color:			#bbbb00
+
+dunst.normal.background:		#588157
+dunst.normal.foreground:		#A8A8A8
+dunst.normal.frame_color:		#3c096c
+
+dunst.critical.background:		#780000
+dunst.critical.foreground:		#EEB9A8
+dunst.critical.frame_color:		#C1121F
