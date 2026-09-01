@@ -1,0 +1,20 @@
+#!/bin/sh
+
+SIGNAL="4"
+AUDIO="@DEFAULT_AUDIO_SINK@"
+STEP="5"
+
+ACTION="$1"
+TARGET="$2"
+
+case "$ACTION" in
+    inc)
+        wpctl set-volume $AUDIO $STEP%+;;
+    dic)
+        wpctl set-volume $AUDIO $STEP%-;;
+    mute)
+        wpctl set-mute $AUDIO $TARGET;;
+esac
+
+# Update dwmblocks
+pkill -RTMIN+$SIGNAL dwmblocks

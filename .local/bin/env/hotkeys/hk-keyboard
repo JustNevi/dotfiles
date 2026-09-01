@@ -1,0 +1,16 @@
+#!/bin/sh
+
+SIGNAL="8"
+
+LAYOUTS=$(setxkbmap -query | awk '/^layout:/ {print $2}')
+
+FIRST="${LAYOUTS%%,*}"
+REST="${LAYOUTS#*,}"
+
+LAYOUTS=$REST,$FIRST
+
+setxkbmap -layout $LAYOUTS
+echo $LAYOUTS
+
+# Update dwmblocks
+pkill -RTMIN+$SIGNAL dwmblocks

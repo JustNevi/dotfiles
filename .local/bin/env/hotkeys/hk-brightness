@@ -1,0 +1,17 @@
+#!/bin/sh
+
+SIGNAL="3"
+STEP="5"
+
+ACTION="$1"
+TARGET="$2"
+
+case "$ACTION" in
+    inc)
+        brightnessctl set +$STEP%;;
+    dic)
+        brightnessctl set $STEP%-;;
+esac
+
+# Update dwmblocks
+pkill -RTMIN+$SIGNAL dwmblocks
