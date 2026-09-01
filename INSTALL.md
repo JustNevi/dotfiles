@@ -1,49 +1,28 @@
-# Suckless
-
-## Dwm
-
-### Download
+# Groups
 
 ```
-git clone https://git.suckless.org/dwm
+sudo usermod -aG audio,video,input,network,storage,bluetooth ${USER}
 ```
 
-```
-git reset --hard 74edc27caa65aba9ea8d1fe03d26e3b449f79590
-```
+# Brightness
 
-## St 
+`brightnessctl`
 
-### Download
+In `/etc/udev/rules.d/90-brightnessctl.rules` add:
 
 ```
-git clone https://git.suckless.org/st
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
 ```
 
-```
-git reset --hard 6e970474743d57a5d8b054c41fd3bff2bc895742
-```
-
-## Dmenu 
-
-### Download
+Add user to video group:
 
 ```
-git clone https://git.suckless.org/dmenu
+sudo usermod -aG video ${USER}
 ```
 
-```
-git reset --hard d893c63cdd927c33b9b8c9bc52aaa284199a650a
-```
+and reboot
 
-## Dwmblocks
+# Pipewire
 
-### Download
-
-```
-git clone https://github.com/torrinfail/dwmblocks
-```
-
-```
-git reset --hard 8cedd220684064f1433749ed2a19a6184c22cf07
-```
+https://docs.voidlinux.org/config/media/pipewire.html
