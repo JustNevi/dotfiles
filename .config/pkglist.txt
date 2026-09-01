@@ -8,14 +8,27 @@ xorg
 xclip
 dunst
 dbus-x11
+dbus
 xwallpaper
+ripgrep
+fd
+brightnessctl
+pipewire
+wireplumber
+alsa-pipewire
+rtkit
+tlp
+ncurses
+bluez
 
+gnupg
 git
 vim
 neovim
 firefox
 zathura
+htop
+nsxiv
 
-neofetch
 cmatrix
 cbonsai
