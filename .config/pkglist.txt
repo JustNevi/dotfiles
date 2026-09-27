@@ -16,10 +16,17 @@ brightnessctl
 pipewire
 wireplumber
 alsa-pipewire
+pulseaudio-utils
 rtkit
 tlp
 ncurses
 bluez
+blueman
+bluez-alsa
+libspa-bluetooth
+
+libxcb
+libxcb-devel
 
 gnupg
 git
