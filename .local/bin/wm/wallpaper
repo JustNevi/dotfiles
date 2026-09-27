@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCAL_BIN="$HOME/.local/bin/env"
+LOCAL_BIN="$HOME/.local/bin/wm"
 CACHE_DIR="$HOME/.cache"
 CACHE_FILE_NAME="wallpaper_index"
 CACHE_FILE=$CACHE_DIR/$CACHE_FILE_NAME

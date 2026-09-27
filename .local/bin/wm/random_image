@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCAL_BIN="$HOME/.local/bin/env"
+LOCAL_BIN="$HOME/.local/bin/wm"
 
 IMAGES_FOLDER="$1"
 
